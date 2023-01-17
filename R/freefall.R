@@ -3,9 +3,10 @@
 #' it takes for the free fall.
 #'
 #' @param height
-#' @param g
+#' A numeric value that is the distance of the free fall in meters.
 #'
-#' @return time
+#'@param g The gravity of the free fall.
+#' @return time A number that is the time it takes for the free fall.
 #' @export
 #'
 #' @examples
@@ -14,8 +15,7 @@
 #' freefall(10, g = 274)
 #' 0.2702
 #'
-freefall <- function(height) {
-  g = 9.8
+freefall <- function(height, g = 9.8) {
   time = sqrt(2*height/g)
   return(time)
   }
