@@ -1,4 +1,4 @@
-# Contributing to the easyphysics package
+# Contributing to the easyphysicsR package
 
 We appreciate your time and effort in contributing to this project. Any contributions are welcomed. These contributions include but are not limited to:
 
@@ -20,9 +20,9 @@ If you want to have any type of contributions to this package, please create a G
 
 ### Code Contribution
 
-Please set up `easyphysics` for local development.
+Please set up `easyphysicsR` for local development.
 
-1. Please fork our [easyphysics repository](https://github.com/UBC-MDS/easyphysics) on GitHub and clone the for to your local machine. For more details on how to for a repository, see this GitHub [Documentation](https://help.github.com/en/articles/fork-a-repo). 
+1. Please fork our [easyphysicsR repository](https://github.com/UBC-MDS/easyphysicsR) on GitHub and clone the for to your local machine. For more details on how to for a repository, see this GitHub [Documentation](https://help.github.com/en/articles/fork-a-repo). 
 
 Keep your local repository updated by pulling from our repository.
 
@@ -97,7 +97,7 @@ If you are proposing a feature:
 
 ## Code of Conduct
 
-Please note that the `easyphysics` project is released with a Code of Conduct. By contributing to this project you agree to abide by its terms. The link to our 'Code of conduct' is [here](CONDUCT.md).
+Please note that the `easyphysicsR` project is released with a Code of Conduct. By contributing to this project you agree to abide by its terms. The link to our 'Code of conduct' is [here](CONDUCT.md).
 
 ## Feedback
 
