@@ -64,12 +64,16 @@ Another similar physics package [soilphysics](https://arsilva87.github.io/soilph
 ## Contributing
 
 `easyphysicsR` was created by Revathy Ponnambalam, Nikita Susan Easow, Yaou Hu and Mengjun Chen.
-Interested in contributing? Check out the [contributing guidelines](CONTRIBUTING.md). Please note that this project is released with a [Code of Conduct](CONDUCT.md). By contributing to this project, you agree to abide by its terms.
+Interested in contributing? Check out the [contributing guidelines](.github/CONTRIBUTING.md). Please note that this project is released with a [Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.
 
 ## License
 
 `easyphysicsR` was created by Revathy Ponnambalam, Nikita Susan Easow, Yaou Hu and Mengjun Chen. It is licensed under the terms of the MIT license.
 
+## Code of Conduct
+
+Please note that the easyphysicsR project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+
 ## Credits
 
-`easyphysicsR` was created with following the book [R Packages](https://r-pkgs.org/) by Hadley Wickham and Jenny Bryan.
+`easyphysicsR` was created following the book [R Packages](https://r-pkgs.org/) by Hadley Wickham and Jenny Bryan.
