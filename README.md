@@ -25,14 +25,6 @@ You can install the development version of easyphysicsR from
 devtools::install_github("UBC-MDS/easyphysicsR")
 ```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-``` r
-library(easyphysicsR)
-```
-
 ## Usage
 
 The package has four functions which can provide solutions for Physics
@@ -60,6 +52,9 @@ provided by the functions. The four functions are as follows:
 ``` r
 library(easyphysicsR)
 freefall(height, g = 9.8)
+(height <- 10)
+freefall(10, g = 9.8)
+#> 1.4286
 ```
 
 ## Fitting into the R ecosystem
