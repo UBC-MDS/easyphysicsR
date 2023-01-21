@@ -25,14 +25,6 @@ You can install the development version of easyphysicsR from
 devtools::install_github("UBC-MDS/easyphysicsR")
 ```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-``` r
-library(easyphysicsR)
-```
-
 ## Usage
 
 The package has four functions which can provide solutions for Physics
@@ -60,6 +52,9 @@ provided by the functions. The four functions are as follows:
 ``` r
 library(easyphysicsR)
 freefall(height, g = 9.8)
+(height <- 10)
+freefall(10, g = 9.8)
+#> 1.4286
 ```
 
 ## Fitting into the R ecosystem
@@ -85,9 +80,9 @@ packages.
 
 `easyphysicsR` was created by Revathy Ponnambalam, Nikita Susan Easow,
 Yaou Hu and Mengjun Chen. Interested in contributing? Check out the
-[contributing guidelines](CONTRIBUTING.md). Please note that this
-project is released with a [Code of Conduct](CONDUCT.md). By
-contributing to this project, you agree to abide by its terms.
+[contributing guidelines](.github/CONTRIBUTING.md). Please note that
+this project is released with a [Code of Conduct](CODE_OF_CONDUCT.md).
+By contributing to this project, you agree to abide by its terms.
 
 ## License
 
@@ -95,7 +90,14 @@ contributing to this project, you agree to abide by its terms.
 Yaou Hu and Mengjun Chen. It is licensed under the terms of the MIT
 license.
 
+## Code of Conduct
+
+Please note that the easyphysicsR project is released with a
+[Contributor Code of
+Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
+
 ## Credits
 
-`easyphysicsR` was created with following the book [R
+`easyphysicsR` was created following the book [R
 Packages](https://r-pkgs.org/) by Hadley Wickham and Jenny Bryan.
