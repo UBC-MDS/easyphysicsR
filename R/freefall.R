@@ -18,15 +18,19 @@
 #' 0.2702
 #'
 freefall <- function(height, g = 9.8) {
-  if (!is.numeric(height) | !is.vector(height) | is_tibble(height)){
+  if (!is.numeric(height) | !is.vector(height)){
     stop('height input has to be numeric')
   }
   if (!is.numeric(g)){
     stop('gravity input has to be numeric')
   }
   if (height <= 0){
-    stop('input has to be larger than 0')
-    Error: 'input has to be larger than 0'
+    stop('height has to be larger than 0')
+    Error: 'height has to be larger than 0'
+  }
+  if (g <= 0){
+    stop('g has to be larger than 0')
+    Error: 'g has to be larger than 0'
   }
   # import libraries
   library(tidyverse)
