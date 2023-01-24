@@ -31,11 +31,13 @@ The package has four functions which can provide solutions for Physics
 Equations. Input will be taken from the User and the solutions will be
 provided by the functions. The four functions are as follows:
 
-- `freefall()` calculates the distance traveled by a falling object
-  using the equation of motion h = 1/2\*gt^2, returns the time it takes
-  for the free fall, and a plot compares the time it takes for the free
-  fall on different planets.The distance traveled by the falling object
-  and the acceleration of gravity are the function’s arguments.
+- `freefall()` calculates the time it takes for a falling object using
+  the equation of motion height = 1/2\*gt^2, given the height and
+  gravity of the free fall. It returns the time it takes for the free
+  fall, and a plot compares the time of the free fall on different
+  planets with a list. The distance traveled by the falling object
+  (height) and the acceleration of gravity (g, default = 9.8) are the
+  function’s arguments.
 - `gravitational_energy()` calculates the energy possessed or acquired
   by an object due to a change in its position when it is present in a
   gravitational field = m*g*h
@@ -52,7 +54,6 @@ provided by the functions. The four functions are as follows:
 ``` r
 library(easyphysicsR)
 freefall(height, g = 9.8)
-(height <- 10)
 freefall(10, g = 9.8)
 #> 1.4286
 ```
