@@ -19,4 +19,7 @@ Suggests:
 Config/testthat/edition: 3
 Imports:
     tidyverse,
-    ggplot2
+    ggplot2,
+    tibble,
+    rlang,
+    dplyr
