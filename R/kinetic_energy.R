@@ -15,5 +15,13 @@
 #' kinetic_energy(m, v)
 #' 2.7
 kinetic_energy <- function(m, v) {
+  if (!is.numeric(m) | !is.numeric(v)){
+    stop("Inputs should be numeric!")
+  }
+  if (m<0){
+    stop("Cannot calculate negative mass...")
+  }
+  KE <- m*v*v/2
+  return(KE)
 
 }
