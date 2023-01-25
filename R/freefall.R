@@ -11,8 +11,10 @@
 #'         plot A plot compares the time of free fall on different planets.
 #' @import ggplot2
 #' @import tidyverse
+#' @import tibble
+#' @import rlang
+#' @import dplyr
 #' @export
-#'
 #' @examples
 #' freefall(10, g = 9.8)
 #' 1.4286
@@ -28,15 +30,10 @@ freefall <- function(height, g = 9.8) {
   }
   if (height <= 0){
     stop('height has to be larger than 0')
-    Error: 'height has to be larger than 0'
   }
   if (g <= 0){
     stop('g has to be larger than 0')
-    Error: 'g has to be larger than 0'
   }
-  # import libraries
-  library(tidyverse)
-  library(ggplot2)
 
   # calculate the time for the free fall indicated by user
   time <- sqrt(2*height/g)
@@ -60,7 +57,7 @@ freefall <- function(height, g = 9.8) {
 
   # make the comparison plot
   plot <- ggplot(plot_df_update,
-                 aes(x = reorder(planet, time),
+                 aes(x = planet,
                      y = time,
                      color = planet)) +
     geom_point(size = 3) +
