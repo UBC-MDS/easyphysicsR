@@ -6,7 +6,10 @@ Authors@R:
     person("Nikita Susan", "Easow", , "nik11susan@gmail.com", role = c("aut", "cre"))
     person("Yaou", "Hu", , "yaouhu@outlook.com", role = c("aut", "cre"))
     person("Mengjun", "Chen", , "chenmj74@gmail.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Description: A package with four useful physics formulas 
+    to make physics easy and fun for users!
+Depends:
+    R (>= 3.2.2)
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -14,3 +17,6 @@ RoxygenNote: 7.2.3
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+Imports:
+    tidyverse,
+    ggplot2
