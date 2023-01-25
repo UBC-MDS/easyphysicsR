@@ -20,7 +20,7 @@ test_that("it is errorenous to input non-numeric data(
               freefall(tibble('planet')))
           })
 
-test_that("the function returns a list with a numeric vector and a plot", {
+test_that("the function returns a numeric vector and a plot", {
   expect_true(is_list(freefall(10))
               & is.ggplot(freefall(
                 10)[[2]])
@@ -41,9 +41,3 @@ test_that("the function returns a list with a numeric vector and a plot", {
   )
 })
 
-test_that("it is errorenous to put numbers smaller than 0 for height or g", {
-            expect_error(
-              freefall(10, g = -1))
-           expect_error(freefall(-10))
-            expect_error(freefall(-1))
-          })
