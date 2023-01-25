@@ -9,6 +9,8 @@
 #'@param g The gravity of the free fall.
 #' @return time A number that is the time it takes for the free fall.
 #'         plot A plot compares the time of free fall on different planets.
+#' @import ggplot2
+#' @import tidyverse
 #' @export
 #'
 #' @examples
