@@ -22,5 +22,16 @@
 #' 4
 #'
 static_friction_ground <- function(mu, m, g = 9.8) {
+  if (!is.numeric(mu)){
+    stop('coefficient of friction input has to be numeric')
+  }
+  if (!is.numeric(g)){
+    stop('gravity input has to be numeric')
+  }
+  if (!is.numeric(m)){
+    stop('mass input has to be numeric')
+  }
+  result <- mu*m*g
+  return(result)
   
  }
