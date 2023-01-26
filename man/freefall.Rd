@@ -2,9 +2,10 @@
 % Please edit documentation in R/freefall.R
 \name{freefall}
 \alias{freefall}
-\title{calculate the distance traveled by a falling object
-using the equation of motion h = 1/2*gt^2, return the time
-it takes for the free fall.}
+\title{calculate the time it takes for a free fall based on
+distance traveled by a falling object and the gravity of the free fall
+using the equation of motion h = 1/2*gt^2. It also returns
+a plot compares the time it takes for the free fall on different planets.}
 \usage{
 freefall(height, g = 9.8)
 }
@@ -15,11 +16,13 @@ freefall(height, g = 9.8)
 }
 \value{
 time A number that is the time it takes for the free fall.
+plot A plot compares the time of free fall on different planets.
 }
 \description{
-calculate the distance traveled by a falling object
-using the equation of motion h = 1/2*gt^2, return the time
-it takes for the free fall.
+calculate the time it takes for a free fall based on
+distance traveled by a falling object and the gravity of the free fall
+using the equation of motion h = 1/2*gt^2. It also returns
+a plot compares the time it takes for the free fall on different planets.
 }
 \examples{
 freefall(10, g = 9.8)
