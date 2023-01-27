@@ -18,7 +18,7 @@
 #' @examples
 #' static_friction_ground(mu=0.2, g = 9.8, m=10)
 #' 19.6
-#' freefall(g=10, mu=0.2, m=2)
+#' static_friction_ground(g=10, mu=0.2, m=2)
 #' 4
 #'
 static_friction_ground <- function(mu, m, g = 9.8) {
