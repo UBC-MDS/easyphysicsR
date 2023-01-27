@@ -53,7 +53,7 @@ easyphysicsR::freefall(10, g = 9.8)
 #> `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
 ```
 
-![](images/freefallplot.png)
+![](images/freefallplot.png){width="10cm"}
 
 ``` r
 library(easyphysicsR)
