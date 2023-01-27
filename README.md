@@ -36,7 +36,7 @@ provided by the functions. The four functions are as follows:
   gravity of the free fall. It returns the time it takes for the free
   fall, and a plot compares the time of the free fall on different
   planets with a list. The distance traveled by the falling object
-  (height) and the acceleration of gravity (g, default = 9.8) are the
+  (height) and the acceleration of gravity (g, default g = 9.8) are the
   function’s arguments.
 - `gravitational_energy()` calculates the energy possessed or acquired
   by an object due to a change in its position when it is present in a
@@ -53,9 +53,34 @@ provided by the functions. The four functions are as follows:
 
 ``` r
 library(easyphysicsR)
-freefall(height, g = 9.8)
 freefall(10, g = 9.8)
-#> 1.4286
+#> [[1]]
+#> [1] 1.428571
+#> [[2]]
+#> `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+easyphysicsR::freefall(10, g = 9.8)
+#> [[1]]
+#> [1] 1.428571
+#> [[2]]
+#> `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+```
+
+![](images/freefallplot.png)
+
+``` r
+library(easyphysicsR)
+gravitational_energy(2.5,10,9.80665)
+#> 245.16
+easyphysicsR::gravitational_energy(2.5,10,9.80665)
+#> 245.16
+kinetic_energy(0.6, 3)
+#> 2.7
+easyphysicsR::kinetic_energy(0.6, 3)
+#> 2.7
+static_friction_ground(mu=0.2, g = 9.8, m=10)
+#> 19.6
+easyphysicsR::static_friction_ground(mu=0.2, g = 9.8, m=10)
+#> 19.6
 ```
 
 ## Fitting into the R ecosystem

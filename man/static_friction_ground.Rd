@@ -30,7 +30,7 @@ touching on. In our case, it would be m*g since it is on the ground. fr = mu * m
 \examples{
 static_friction_ground(mu=0.2, g = 9.8, m=10)
 19.6
-freefall(g=10, mu=0.2, m=2)
+static_friction_ground(g=10, mu=0.2, m=2)
 4
 
 }
