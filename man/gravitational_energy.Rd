@@ -4,25 +4,25 @@
 \alias{gravitational_energy}
 \title{Gravitational Energy}
 \usage{
-gravitational_energy(m, g = 9.80665, h)
+gravitational_energy(m, h, g = 9.80665)
 }
 \arguments{
 \item{m}{mass of the object (kg)}
 
-\item{g}{gravity of earth (m/s^2)}
-
 \item{h}{height above the earth surface (m)}
+
+\item{g}{gravity of earth (m/s^2)}
 }
 \value{
 GE Gravitational energy of the object
 }
 \description{
-calculate the energy possessed or acquired by an object due to a change in its position when it is present in a gravitational field  = m\emph{g}h
+calculate the energy possessed or acquired by an object due to a change in its position when it is present in a gravitational field  = m\emph{h}g
 }
 \examples{
 m <- 2.5
 g <- 9.80665
 h <- 10
-gravitational_energy(m,g,h )
+gravitational_energy(m,h,g )
 245.16
 }
