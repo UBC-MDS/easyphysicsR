@@ -8,7 +8,7 @@
 #'
 #' @return GE Gravitational energy of the object
 #' @export
-#'
+#' @import tidyverse
 #' @examples
 #' m <- 2.5
 #' g <- 9.80665
@@ -36,10 +36,8 @@ if (!is.numeric(m) | !is.vector(m)){
   if (g <= 0){
     stop('gravity should be more than zero')
       }
-  # import libraries
-  library(tidyverse)
   
-
-  # calculate the gravitational energy possessed by object of mass m at height h 
-  ge <- m*h*g
+# calculate the gravitational energy possessed by object of mass m at height h 
+ ge <- m*h*g
+ return(ge)
 }
