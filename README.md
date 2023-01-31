@@ -63,12 +63,6 @@ easyphysicsR::freefall(10, g = 9.8)
 #> [1] 1.428571
 #> [[2]]
 #> `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
-```
-
-<img src=".github/freefallplot.png" style="width:10cm" />
-
-``` r
-library(easyphysicsR)
 gravitational_energy(2.5,10,9.80665)
 #> 245.16
 easyphysicsR::gravitational_energy(2.5,10,9.80665)
