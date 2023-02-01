@@ -17,6 +17,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 
+[![R-CMD-check](https://github.com/UBC-MDS/easyphysicsR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/UBC-MDS/easyphysicsR/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 A package with useful physics formulas to make physics easy and fun for users! It uses four functions to easily calculate four classic physics theories. By making the functions concise and supporting graphs to demonstrate the theories, physics beginners might find learning physics fun and not daunting! All functions in this package require only arguments in numeric format; no dataset files are needed. `easyphysics` can also generate easy-to-understand visualizations to further reveal the physics effects.
