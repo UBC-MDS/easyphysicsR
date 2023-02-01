@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="author" content="UBC_MDS_Group16" />
+
+
+<title>easyphysicsR</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">easyphysicsR</h1>
+<h4 class="author">UBC_MDS_Group16</h4>
+
+
+
+<p>A package with useful physics formulas to make physics easy and fun
+for users! It uses four functions to easily calculate four classic
+physics theories. By making the functions concise and supporting graphs
+to demonstrate the theories, physics beginners might find learning
+physics fun and not daunting! All functions in this package require only
+arguments in numeric format; no dataset files are needed. easyphysics
+can also generate easy-to-understand visualizations to further reveal
+the physics effects.</p>
+<p>The package has four functions which can provide solutions for
+Physics Equations. Input will be taken from the User and the solutions
+will be provided by the functions. The four functions are as
+follows:</p>
+<ul>
+<li><code>freefall()</code> calculates the time it takes for a falling
+object using the equation of motion height = 1/2*gt^2, given the height
+and gravity of the free fall. It returns the time it takes for the free
+fall, and a plot compares the time of the free fall on different planets
+with a list. The distance traveled by the falling object (height) and
+the acceleration of gravity (g, default g = 9.8) are the function’s
+arguments.</li>
+<li><code>gravitational_energy()</code> calculates the energy possessed
+or acquired by an object due to a change in its position when it is
+present in a gravitational field = m<em>g</em>h</li>
+<li><code>kinetic_energy()</code> calculates the Kinetic Energy of an
+object. When work is done on an object, energy is transferred, and the
+object moves with a new constant speed. We call the energy that is
+transferred kinetic energy, and it depends on the mass and speed
+achieved. The kinetic energy equation is given as: KE =
+1/2<em>m</em>v^2, Where KE is the kinetic energy, m is the body’s mass,
+and v is the body’s velocity.</li>
+<li><code>static_friction_ground()</code> calculates the friction force
+for static object. The formula is fr = mu * N, where the mu is the
+coefficient of friction which incorporating the characteristics of the
+surface.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easyphysicsR)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example usage of the freefall function</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">freefall</span>(<span class="dv">10</span>, <span class="at">g =</span> <span class="fl">9.8</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[1]]</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1.428571</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[2]]</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</span></span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>easyphysicsR<span class="sc">::</span><span class="fu">freefall</span>(<span class="dv">100</span>, <span class="at">g =</span> <span class="dv">15</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[1]]</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 3.651484</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [[2]]</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</span></span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example usage of the gravitational_energy function</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gravitational_energy</span>(<span class="fl">2.5</span>,<span class="dv">10</span>,<span class="fl">9.80665</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 245.1662</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>easyphysicsR<span class="sc">::</span><span class="fu">gravitational_energy</span>(<span class="dv">5</span>,<span class="dv">20</span>,<span class="fl">9.80665</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 980.665</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example usage of the kinetic_energy function </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kinetic_energy</span>(<span class="fl">0.6</span>, <span class="dv">3</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 2.7</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>easyphysicsR<span class="sc">::</span><span class="fu">kinetic_energy</span>(<span class="dv">6</span>, <span class="dv">10</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 300</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example usage of the static_friction_ground function </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">static_friction_ground</span>(<span class="at">mu=</span><span class="fl">0.2</span>, <span class="at">g =</span> <span class="fl">9.8</span>, <span class="at">m=</span><span class="dv">10</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 19.6</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>easyphysicsR<span class="sc">::</span><span class="fu">static_friction_ground</span>(<span class="at">mu=</span><span class="dv">5</span>, <span class="at">g =</span> <span class="dv">15</span>, <span class="at">m=</span><span class="dv">10</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 750</span></span></code></pre></div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
