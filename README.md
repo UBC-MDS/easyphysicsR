@@ -4,6 +4,9 @@
 # easyphysicsR
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/UBC-MDS/easyphysicsR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/UBC-MDS/easyphysicsR/actions)
+[![codecov](https://codecov.io/gh/UBC-MDS/easyphysicsR/branch/main/graph/badge.svg?token=KEcKtMTz4z)](https://codecov.io/gh/UBC-MDS/easyphysicsR)
 <!-- badges: end -->
 
 A package with useful physics formulas to make physics easy and fun for
